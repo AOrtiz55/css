@@ -1,10 +1,6 @@
-<!DOCTYPE html>
 <html>
 <head>
 
-<br/>
-
-<title>About Foodar</title>
 <footer>
 <p> author: aaron </p>
 <p><a href="index.html">Home</a>.</p>
@@ -12,6 +8,11 @@
 <p><a href="about.html">Registration</a>.</p>
 <p><a href="Req.html">Request</a>.</p>
 </footer>
+
+
+<title>Foodar</title>
+
+
 <style>
 body, html {
 
@@ -26,21 +27,54 @@ body, html {
 	max-height:80rem;
 	background-color:salmon;
   }
+
+  footer{
+
+
+  padding:0 7em;
+  }
 .myDiv {
 
-  background-color:salmon;
+  background-color: salmon;
 
   padding:5em 5em;
 }
-p{
-color :blue;
+h1{
+vertical-align:top;
+padding:0;
+text-indent: 4em;
+}
+h2{
+vertical-align:top;
+padding:0;
+text-indent: 3.5em;
+}
+h3{
+vertical-align:top;
+padding:0;
+text-indent: 4.5em;
+}
+h4{
+padding:0 2em;
+text-indent: 3.5em;
+}
+h5{
+text-indent: 3.5em;
+}
+p1{
+padding:8em 2em;
+}
+h6,{
+vertical-align:top;
 
 }
-.green{
-color:green;
+.right{
+float:right;
+height:100%;
 }
-section,p,h2{
-text-indent:10em;
+.left{
+height:10%;
+float:left;
 }
 a{
 text-decoration:none;
@@ -63,36 +97,115 @@ a:active{
 color:green;
 background:beige;
 }
-
-</Style>
+</style>
 </head>
+
+
+<body>
  <div class="outer-box-frame">
-
-
 <div class="myDiv">
-<h2 class="green"> FOODAR<h2>
-<h1 class = "blue"><center>	<font size="+2">How it Works!!</font></h1>
+<h1>foodar</h1>
+<h2>Register</h2>
+<h3>Please fill out the form below</h3>
 	<br/>
-    <p><font size="+2">Register for an account</font></p>
-	<br/>
-	<section> The first thing you need to do is register for an account</Section>
-	<br/>
-	<section> After registering you will be able to submit request for pickup and have you food delivered to your door!
-	<br/>
-	<br/>
+<form id = "my">
+<div style="width:700px;">
+<div style="width:200px; float:left;">
+<h4>Details:</h4>
+<p><pre nav ="tab">
+		<label> <input id="text" name="email" placeholder="email"/></label>
 
-	<p><font size="+2">Order your food</font></p>
-	<br/>
-	<Section>Place order for food from a local resturants and the system will automatically find the nearest driver at the best cost</section>
-	<br/>
-	<br/>
+		<label> <input id="password" name="password"placeholder="password" /></label>
 
-	<p><font size="+2">Confirm your request</font></p>
-	<br/>
-	<section>Before any request is submitted, you have the chance to review it and make any changes or cancellations</section>
+		<label> <input id="textF" name="first name " placeholder="first name"/></label>
+
+		<label> <input id="textS" name="second name"placeholder="last name" /></label>
+	</p></div>
+
+ <div style="width:350px; float:right;">
+
+<h5>Address:</h5>
+<p><pre nav="tab">
+	<label for="address"><input id="address" name="address-1" type="text" placeholder="address"/></label>
+
+	<label for="street"><input id="street" name="address-2" type="text" placeholder="street"/></label>
+
+	<label for="city"><input id="city" name="address-3" type="text" placeholder="city"/></label>
+
+	<label for="Zipcode"><input id="Zipcode" name="address-4" type="text" maxlength="5" placeholder="zipcode"/></label>
 	</div>
-
+<div style="clear: both;"></div>
+</p>
+	<button type="submit" value="Submit">Register</button>
+</pre>
+	</form>
 	</div>
-
+	</div>
+	<span>&copy;</span>
+	</div>
 </body>
+<script>
+var a = document.getElementById("address");
+var s = document.getElementById("street");
+var e = document.getElementById("text");
+var fistName = document.getElementById("textF");
+var p = document.getElementById("password");
+var lastName=document.getElementById("textS");
+var c= document.getElementById("city");
+var z= document.getElementById("Zipcode");
+
+function Em(evt) {
+
+let e = document.getElementById("text").value;
+console.log(e);
+ return( e.indexOf(evt) >=0 )
+
+}
+function checkIfAvailable(code)
+{
+  let zones = ["62234"]
+  return( zones.indexOf(code) >= 0 )
+}
+
+
+var form=document.getElementById("my");
+
+form.addEventListener("submit", function(){
+
+let evt= document.getElementById("text").value;
+console.log(evt);
+let code = document.getElementById("Zipcode").value;
+console.log(code);
+
+  if(document.getElementById("text").value.length == 0
+     || document.getElementById("street").value.length == 0
+		|| document.getElementById("address").value.length == 0
+			|| document.getElementById("textF").value.length == 0
+				|| document.getElementById("password").value.length == 0
+					|| document.getElementById("textS").value.length == 0
+						|| document.getElementById("city").value.length == 0
+							|| document.getElementById("Zipcode").value.length == 0){
+    alert("Sorry, something is missing in your form.");
+  }else{
+    console.log(document.getElementById("street").value);
+    alert("Our service is available in this area!");
+  }
+
+ //let evt = document.getElementById("text").value;
+//if (Em(evt)==true)
+    //{
+      //alert("Our service is available in this area!");
+
+    //}
+	//else{
+	//alert("Sorry, our service is not available in this area");
+	//}
+
+
+});
+
+
+
+
+</script>
 </html>
