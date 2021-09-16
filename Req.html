@@ -1,0 +1,307 @@
+<html>
+
+<head>
+  <title> request</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <footer>
+    <p> author: aaron </p>
+    <p><a href="index.html">Home</a>.</p>
+    <p><a href="home.html">About Us</a>.</p>
+    <p><a href="about.html">Registration</a>.</p>
+    <p><a href="Req.html">Request</a>.</p>
+  </footer>
+</head>
+<style>
+  body,
+  html {
+    background-color: skyblue;
+  }
+
+  @media screen and (min-width: 50rem) {
+    .outer-box-frame {
+      border: 1rem solid #C1A2CC;
+      margin: 1rem auto;
+      margin-top: -13rem;
+      /*the auto for the left/right keeps the page centered*/
+      padding: 2rem 5rem;
+      max-width: 80rem; // min-width - 2(padding + border)
+      max-height: 80rem;
+      background-color: salmon;
+    }
+
+    footer1 {
+      text-indent: 40px;
+    }
+
+    h1 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 15pt;
+    }
+
+    h2 {
+      text-indent: 2em;
+      font-size: 12pt;
+    }
+
+    h3 {
+      text-indent: 2em;
+      font-size: 12pt;
+      padding: 1em 0em;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {
+      margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      height: 20px;
+    }
+
+    /* Style the counter cards */
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      /* this adds the "card" effect */
+      padding: 20px 50px;
+      text-align: center;
+
+      background-color: #f1f1f1;
+      min-height: 200px;
+
+    }
+
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    .center {
+      justify-content: center;
+      align-items: center;
+      padding: 0 31.5em;
+    }
+</style>
+
+<body>
+  <div class="outer-box-frame">
+    <footer>
+      <h1>submit your Request</h1>
+      <p> please fill out the form below</p>
+    </footer>
+    <form id="home" onsubmit="return false;">
+      <h2> Address</h2>
+
+      <div style="padding: 0 4em;">
+        <label><input id="street" type="text" name="address" size="50" placeholder="address" /></label>
+      </div>
+
+
+
+      <h3> Choose Your Style</h3>
+      <div class="row">
+        <div class="column">
+          <div class="card">Classic
+            <p> this is the classic treatment</p>
+            <input type="checkbox" id="one" value="3"> <br>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">Premium
+            <p> party up</p><br>
+            <input type="checkbox" id="two" value="10"> <br>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">Royal
+            <p> You food is served on a silver plater litterealy</p>
+            <input type="checkbox" id="three" value="5"> <br>
+          </div>
+        </div>
+      </div>
+      <h4> Resturant</h4>
+
+      <div style="padding: 0 4em;">
+        <label> <input id="name" type="text" name="firstname " size="50" placeholder="name" /></label>
+      </div>
+      <h4> Tip</h4>
+      <div class="row">
+        <div class="column">
+          <div class="card">10%
+            <p> this did their job</p>
+            <input type="checkbox" id="four" value="3"> <br>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">15%
+            <p> they made you feel special</p><br>
+            <input type="checkbox" id="five" value="3"> <br>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">20%
+            <p> i wanna give them more,but this is all i have!</p>
+            <input type="checkbox" id="six" value="3"> <br>
+          </div>
+        </div>
+      </div>
+
+      <p id="total" style="text-align:center;"> Total: </p>
+
+      <div class="center">
+        <button id="submit" value="Submit" style="text-align:center;">submit</button>
+      </div>
+    </form>
+    <script>
+      var dollar = Intl.NumberFormat('en-US');
+
+
+
+      var checkBox1 = document.getElementById("one");
+      var checkBox2 = document.getElementById("two");
+      var checkBox3 = document.getElementById("three");
+      var checkBox4 = document.getElementById("four");
+      var checkBox5 = document.getElementById("five");
+      var checkBox6 = document.getElementById("six");
+      var text1 = document.getElementById("text1");
+
+
+      var a = document.getElementById("street");
+      var b = document.getElementById("name");
+
+      function add(firstB) {
+
+        let a = document.getElementById("street").value;
+        console.log(a);
+        return (a.indexOf(firstB) >= 0)
+
+      }
+
+      function second(secondB) {
+
+        let b = document.getElementById("name").value;
+        console.log(b);
+        return (b.indexOf(secondB) >= 0)
+
+      }
+
+
+
+      var form = document.getElementById("home");
+
+      form.addEventListener("submit", function() {
+
+        let add = document.getElementById("street").value;
+        console.log(add);
+        let second = document.getElementById("name").value;
+        console.log(second);
+
+        if (document.getElementById("street").value.length == 0 ||
+          document.getElementById("name").value.length == 0) {
+          alert("you left something blank");
+
+        } else {
+
+        }
+
+        if (checkBox1.checked) {
+          if (checkBox4.checked) {
+            //$3 & 10%
+            total = (3 / 10) + 3;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          } else if (checkBox5.checked) {
+            //$3 & 15%
+            total = 3 * .15 + 3;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          } else if (checkBox6.checked) {
+            total = 3 * .2 + 3;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          }
+
+        } else if (checkBox2.checked) {
+          if (checkBox4.checked) {
+            total = 5 * .1 + 5;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+
+          } else if (checkBox5.checked) {
+            total = 5 * .15 + 5;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          } else if (checkBox6.checked) {
+            total = 5 * .2 + 5;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          }
+        } else if (checkBox3.checked) {
+          if (checkBox4.checked) {
+            total = 10 * .1 + 10;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+
+          } else if (checkBox5.checked) {
+            total = 10 * .15 + 10;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          } else if (checkBox6.checked) {
+            total = 10 * .2 + 10;
+            total = dollar.format(total);
+            var t = parseFloat(total).toFixed(2);
+            document.getElementById("total").innerHTML = "Total: $ " + t;
+          }
+
+        } else {
+          alert("Opps, you forgot to check a box!");
+
+        }
+
+      });
+    </script>
+  </div>
+</body>
+
+</html>
